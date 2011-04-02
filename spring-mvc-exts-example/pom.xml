@@ -71,6 +71,12 @@
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time-jsptags</artifactId>
 			<scope>runtime</scope>
+			<exclusions>
+				<exclusion>
+					<artifactId>jsp-api</artifactId>
+					<groupId>javax.servlet</groupId>
+				</exclusion>
+			</exclusions>
 		</dependency>
 
 		<!-- Servlet -->
