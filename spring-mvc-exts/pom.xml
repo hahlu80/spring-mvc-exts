@@ -82,6 +82,10 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>aspectj-maven-plugin</artifactId>
 				<configuration>
+					<outxml>true</outxml>
+					<source>1.6</source>
+					<target>1.6</target>
+					<encoding>utf-8</encoding>
 				</configuration>
 			</plugin>
 		</plugins>
