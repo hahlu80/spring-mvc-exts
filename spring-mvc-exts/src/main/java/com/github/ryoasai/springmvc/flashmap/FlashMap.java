@@ -13,14 +13,16 @@ public class FlashMap {
 	public static Map<String, Object> getCurrent(HttpServletRequest request) {
 		HttpSession session = request.getSession(); 
 
-		@SuppressWarnings("unchecked")
-		Map<String, Object> flash = (Map<String, Object>) session.getAttribute(FLASH_SCOPE_ATTRIBUTE);
-		if (flash == null) {
-			flash = new HashMap<String, Object>();
-			session.setAttribute(FLASH_SCOPE_ATTRIBUTE, flash);
+		synchronized (session) {
+			@SuppressWarnings("unchecked")
+			Map<String, Object> flash = (Map<String, Object>) session.getAttribute(FLASH_SCOPE_ATTRIBUTE);
+			if (flash == null) {
+				flash = new HashMap<String, Object>();
+				session.setAttribute(FLASH_SCOPE_ATTRIBUTE, flash);
+			}
+			
+			return flash;
 		}
-		
-		return flash;
 	}
 	
 	private FlashMap() {}
