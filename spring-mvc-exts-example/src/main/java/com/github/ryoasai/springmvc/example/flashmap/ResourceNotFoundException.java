@@ -8,6 +8,7 @@ public class ResourceNotFoundException extends RuntimeException {
 	
 	private static final long serialVersionUID = 1L;
 
+	// test
 	private Long resourceId;
 	
 	public ResourceNotFoundException(Long resourceId) {
