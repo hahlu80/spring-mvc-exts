@@ -19,17 +19,19 @@ public class FlashMapFilter extends OncePerRequestFilter {
 		throws ServletException, IOException {
 		HttpSession session = request.getSession(false);
 		if (session != null) {
-			@SuppressWarnings("unchecked")
-			Map<String, ?> flash = (Map<String, ?>) session.getAttribute(FlashMap.FLASH_SCOPE_ATTRIBUTE);
-			if (flash != null) {
-				for (Map.Entry<String, ?> entry : flash.entrySet()) {
-					Object currentValue = request.getAttribute(entry.getKey());
-					if (currentValue == null) {
-						request.setAttribute(entry.getKey(), entry.getValue());
-					}					
+			synchronized (session) {
+				@SuppressWarnings("unchecked")
+				Map<String, ?> flash = (Map<String, ?>) session.getAttribute(FlashMap.FLASH_SCOPE_ATTRIBUTE);
+				if (flash != null) {
+					for (Map.Entry<String, ?> entry : flash.entrySet()) {
+						Object currentValue = request.getAttribute(entry.getKey());
+						if (currentValue == null) {
+							request.setAttribute(entry.getKey(), entry.getValue());
+						}					
+					}
+
+					session.removeAttribute(FlashMap.FLASH_SCOPE_ATTRIBUTE);
 				}
-				
-				session.removeAttribute(FlashMap.FLASH_SCOPE_ATTRIBUTE);
 			}
 		}
 		
