@@ -25,5 +25,5 @@ public class FlashMap {
 		}
 	}
 	
-	private FlashMap() {}
+	private FlashMap() {} // Prohibit to create any instances.
 }

@@ -6,7 +6,7 @@
 <html>
 <head>
 	<META http-equiv="Content-Type" content="text/html;charset=UTF-8">
-	<title>Spring jXLS examples</title>
+	<title>Spring MVC extensions sample</title>
 	<link rel="stylesheet" href="<c:url value="/resources/blueprint/screen.css" />" type="text/css" media="screen, projection">
 	<link rel="stylesheet" href="<c:url value="/resources/blueprint/print.css" />" type="text/css" media="print">
 	<!--[if lt IE 8]>
@@ -15,9 +15,10 @@
 </head>
 <body>
 <div class="container">  
-	<h1>Spring jXSL sample</h1>
+	<h1>Spring MVC extensions sample</h1>
 	<a href="jxls/department" >Download department.xsl</a><br/>
-	<a href="jxls/department_filename_in_model" >Download department.xsl(Filename is specified as model key.)</a>
+	<a href="jxls/department_filename_in_model" >Download department.xsl(Filename is specified as model key.)</a><br/>
+	<a href="account">Flash scope demo.</a><br/>
 
 	<%-- File upload test --%>
 	<p>File upload test.</p>

@@ -1,0 +1,6 @@
+Some extensions to the Spring MVC web application framework.
+
+Currently the following functions are implemented.
+ -Integration with the jXLS, with which you can create views easily from Excel file templates.
+ -A simple implementation of the flash scope.
+ 
