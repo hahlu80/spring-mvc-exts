@@ -35,9 +35,9 @@ public class ConversionServiceBeanPropertyWriter extends BeanPropertyWriter {
 				.getPropertyTypeDescriptor(getName());
 		TypeDescriptor strDesc = TypeDescriptor.valueOf(String.class);
 		
-		if (BeanUtils.isSimpleValueType(fieldDesc.getType()) 
-				&& fieldDesc != null
+		if (fieldDesc != null && BeanUtils.isSimpleValueType(fieldDesc.getType()) 
 				&& this.conversionService.canConvert(fieldDesc, strDesc)) {
+
 			Object formattedValue = this.conversionService.convert(value,
 					fieldDesc, strDesc);
 			doSerializeAsField(bean, formattedValue, jgen, prov);
